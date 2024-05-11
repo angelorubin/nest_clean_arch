@@ -4,7 +4,7 @@ import { AuthorUseCases } from '../use-cases/author/author.use-case';
 
 @Controller('api/author')
 export class AuthorController {
-  constructor(private authorUseCases: AuthorUseCases) {}
+  constructor(private authorUseCases: AuthorUseCases) { }
 
   @Get()
   async getAll() {

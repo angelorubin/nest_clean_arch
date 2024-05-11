@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { IDataServices } from '../../../core';
-import { DATA_BASE_CONFIGURATION } from '../../../configuration';
+
 import {
   Author,
   AuthorSchema,
@@ -19,7 +20,6 @@ import { MongoDataServices } from './mongo-data-services.service';
       { name: Book.name, schema: BookSchema },
       { name: Genre.name, schema: GenreSchema },
     ]),
-    MongooseModule.forRoot(DATA_BASE_CONFIGURATION.mongoConnectionString),
   ],
   providers: [
     {
@@ -29,4 +29,4 @@ import { MongoDataServices } from './mongo-data-services.service';
   ],
   exports: [IDataServices],
 })
-export class MongoDataServicesModule {}
+export class MongoDataServicesModule { }
